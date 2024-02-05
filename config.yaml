@@ -1,0 +1,36 @@
+---
+# ------------------------------------------------------------------------------
+# MAIN SETTINGS
+# ------------------------------------------------------------------------------
+
+# General Settings
+showLogs: true
+markAsBot: true
+
+# Bot Settings
+minimumKarma: 5 # The minimum karma a user needs to have in recent posts to be able to post
+onlyImages: true # When true it will only remove image posts
+sendMessages: true # When true will message users when their post is removed (will only send messages to users in the bots instance or users that made posts in communities in the instance)
+
+# Testing
+dryRun: false # Set to true to not actually do any actions in the instance
+
+# Messages
+
+removalMessage: "Your ${POST_TYPE} ${POST_LINK} has been removed as you do not have enough activity on your account to create ${POST_CONTENT_TYPE} in that community"
+
+# ------------------------------------------------------------------------------
+# SCOPE SETTINGS
+# ------------------------------------------------------------------------------
+
+removeFromAllCommunities: true # When true removes posts globally on the instance. Requires admin permissions
+
+# If you only want it for certain communities set the above to false and uncomment + fill out below
+# Requires mod permissions in these communities or admin permissions on the instance
+
+# instances:
+#   example.com:
+#     - testcommunity
+#     - testcommunity2
+#   example.net:
+#     - com3

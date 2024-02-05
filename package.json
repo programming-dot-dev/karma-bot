@@ -1,0 +1,12 @@
+{
+  "main": "main.js",
+  "author": "Ategon",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "dotenv": "^16.3.1",
+    "js-yaml": "^4.1.0",
+    "lemmy-bot": "^0.5.1"
+  },
+  "type": "module"
+}
