@@ -26,3 +26,7 @@ Prerequisite: Having docker compose installed
 ## Manual Setup (Node.js)
 
 Prerequisite: Having node.js installed
+
+## Credits
+
+Icon base by [Lorc](https://lorcblog.blogspot.com/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) with modifications to add a gradient
