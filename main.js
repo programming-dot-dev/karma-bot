@@ -92,7 +92,6 @@ if (
     schedule: schedules,
     enableLogs: showLogs,
     dryRun: dryRun,
-    secondsBetweenPolls: 10,
   });
 
   bot.start();
