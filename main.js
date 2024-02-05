@@ -19,47 +19,57 @@ log("LOADING", "Loading Bot", LogCategory.INFO);
 // Load Handlers
 
 const handlers = {};
-const handlersPath = path.join(__dirname, "src/handlers");
-const handlerFiles = readdirSync(handlersPath).filter((file) =>
-  file.endsWith(".js")
-);
 
-for (const file of handlerFiles) {
-  const filePath = path.join(handlersPath, file);
-  const { default: command } = await import("file://" + filePath);
+if (readdirSync(path.join(__dirname, "src")).includes("handlers")) {
+  const handlersPath = path.join(__dirname, "src/handlers");
+  // Check if the handlers directory exists
 
-  handlers[file.split(".").shift()] = command;
+  const handlerFiles = readdirSync(handlersPath).filter((file) =>
+    file.endsWith(".js")
+  );
+
+  for (const file of handlerFiles) {
+    const filePath = path.join(handlersPath, file);
+    const { default: command } = await import("file://" + filePath);
+
+    handlers[file.split(".").shift()] = command;
+  }
+
+  log(
+    "LOADED",
+    `Loaded ${handlerFiles.length} handler${
+      handlerFiles.length != 1 ? "s" : ""
+    }`,
+    LogCategory.SUCCESS
+  );
 }
-
-log(
-  "LOADED",
-  `Loaded ${handlerFiles.length} handler${handlerFiles.length != 1 ? "s" : ""}`,
-  LogCategory.SUCCESS
-);
 
 // -----------------------------------------------------------------------------
 // Load Schedules
 
 const schedules = [];
-const schedulesPath = path.join(__dirname, "src/schedules");
-const scheduleFiles = readdirSync(schedulesPath).filter((file) =>
-  file.endsWith(".js")
-);
 
-for (const file of scheduleFiles) {
-  const filePath = path.join(schedulesPath, file);
-  const { default: command } = await import("file://" + filePath);
+if (readdirSync(path.join(__dirname, "src")).includes("schedules")) {
+  const schedulesPath = path.join(__dirname, "src/schedules");
+  const scheduleFiles = readdirSync(schedulesPath).filter((file) =>
+    file.endsWith(".js")
+  );
 
-  schedules.push(command);
+  for (const file of scheduleFiles) {
+    const filePath = path.join(schedulesPath, file);
+    const { default: command } = await import("file://" + filePath);
+
+    schedules.push(command);
+  }
+
+  log(
+    "LOADED",
+    `Loaded ${scheduleFiles.length} schedule${
+      scheduleFiles.length != 1 ? "s" : ""
+    }`,
+    LogCategory.SUCCESS
+  );
 }
-
-log(
-  "LOADED",
-  `Loaded ${scheduleFiles.length} schedule${
-    scheduleFiles.length != 1 ? "s" : ""
-  }`,
-  LogCategory.SUCCESS
-);
 
 // -----------------------------------------------------------------------------
 // Main Bot Code
