@@ -9,6 +9,7 @@ import {
 import {
   detectImageComment,
   getInstanceFromActorId,
+  getKarma,
 } from "../common/helpers.js";
 import { LogCategory, log } from "../common/log.js";
 
