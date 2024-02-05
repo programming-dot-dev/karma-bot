@@ -2,6 +2,7 @@ import "dotenv/config";
 
 import {
   instances,
+  minimumKarma,
   removalMessage,
   removeFromAllCommunities,
   sendMessages,
