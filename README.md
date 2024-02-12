@@ -23,9 +23,13 @@ This is a bot to check how much karma a user has and then remove posts if it doe
 
 Prerequisite: Having docker compose installed
 
+Note: very broken currently. Switching what bot library I use in the future to fix it
+
 ## Manual Setup (Node.js)
 
 Prerequisite: Having node.js installed
+
+(fleshed out instructions coming soon, for now see the instructions in https://github.com/programming-dot-dev/rss-bot)
 
 ## Credits
 
