@@ -8,6 +8,7 @@ import {
   sendMessages,
 } from "../common/config.js";
 import {
+  checkWhitelist,
   detectImageComment,
   getInstanceFromActorId,
   getKarma,

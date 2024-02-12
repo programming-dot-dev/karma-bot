@@ -9,6 +9,7 @@ import {
   sendMessages,
 } from "../common/config.js";
 import {
+  checkWhitelist,
   detectImage,
   getInstanceFromActorId,
   getKarma,
