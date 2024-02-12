@@ -26,6 +26,13 @@ export default {
       return;
     }
 
+    const instanceName = getInstanceFromActorId(community.actor_id);
+
+    // Check if the user is whitelisted
+    if (checkWhitelist(`${creator.name}@${instanceName}`)) {
+      return;
+    }
+
     // Check if the user has enough karma
     const personDetails = await __httpClient__.getPersonDetails({
       person_id: creator.id,
@@ -39,8 +46,6 @@ export default {
     }
 
     // Detect if community is one of the ones we want to remove from OR if remove from all communities is true
-    const instanceName = getInstanceFromActorId(community.actor_id);
-
     const removalCommunity = Object.keys(instances).find((instance) => {
       if (instance !== instanceName) return false;
 

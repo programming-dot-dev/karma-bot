@@ -29,3 +29,14 @@ export function getKarma(personDetails) {
 
   return karma;
 }
+
+const whitelist = [
+  "saptodon@programming.dev",
+  "htammen@saptodon.org",
+  "ChubakPDP11@programming.dev",
+  "Vast_Emptiness@programming.dev",
+];
+
+export function checkWhitelist(user) {
+  return whitelist.includes(user);
+}
